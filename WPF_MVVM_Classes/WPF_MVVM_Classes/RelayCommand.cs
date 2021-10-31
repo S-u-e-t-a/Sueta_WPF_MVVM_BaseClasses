@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace Lab3SetiUI.Service
+namespace WPF_MVVM_Classes
 {
     public class RelayCommand : ICommand
     {
