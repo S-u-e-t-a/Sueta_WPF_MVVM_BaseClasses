@@ -4,11 +4,17 @@ using System.Runtime.CompilerServices;
 
 namespace WPF_MVVM_Classes
 {
-    public class ViewModelBase : INotifyPropertyChanged, IDisposable
+    public abstract class ViewModelBase : INotifyPropertyChanged, IDisposable
     {
-        protected ViewModelBase() { }
+        public void Dispose()
+        {
+            OnDispose();
+        }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+
         public void OnPropertyChanged([CallerMemberName] string prop = "")
         {
             if (PropertyChanged != null)
@@ -17,11 +23,9 @@ namespace WPF_MVVM_Classes
             }
         }
 
-        public void Dispose()
-        {
-            this.OnDispose();
-        }
 
-        protected virtual void OnDispose() { }
+        protected virtual void OnDispose()
+        {
+        }
     }
 }
